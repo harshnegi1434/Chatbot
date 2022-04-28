@@ -77,44 +77,88 @@ def chatbot_response(text):
 
 
 # creating GUI with tkinter
-base = Tk()
-base.title("Chatbot - TWILIGHT")
-base.geometry("400x500")
-base.resizable(width=FALSE, height=FALSE)
+from tkinter import *
 
-# create chat window
-Chatlog = Text(base, bd="0", bg="white", height="8", width="50", font="Arial")
-Chatlog.config(state=DISABLED)
+bot_name = "Twilight"
 
-# bind scrollbar to Chat window
-scrollbar = Scrollbar(base, command=Chatlog.yview, cursor="heart")
-Chatlog['yscrollcommand'] = scrollbar.set
+BG_GRAY = "#ABB2B9"
+BG_COLOR = "#17202A"
+TEXT_COLOR = "#EAECEE"
 
-def send():
-    msg = EntryBox.get("1.0", 'end-1c').strip()
-    EntryBox.delete("0.0", END)
+FONT = "Helvetica 14"
+FONT_BOLD = "Helvetica 13 bold"
 
-    if msg != '':
-        Chatlog.config(state=NORMAL)
-        Chatlog.insert(END, f"You: {msg}" + '\n\n')
-        Chatlog.config(foreground="#442265", font=("Verdana", 12))
-        res = chatbot_response(msg)
-        Chatlog.insert(END, f"Twilight: {res}" + '\n\n')
-        Chatlog.config(state=DISABLED)
-        Chatlog.yview(END)
-
-# create button to send message
-Sendbutton = Button(base, font=("Verdana", 12, 'bold'), bd="0", bg="#32de97", 
-                    text="Send", width="12", height="5",
-                    activebackground="#3c9d9b", fg="#ffffff", command=send)
-
-# create the box to enter message
-EntryBox = Text(base, bd="0", bg="white", width="29", height="5", font="Arial")
-
-# place all components on the screen
-scrollbar.place(x=376, y=6, height=386)
-Chatlog.place(x=6, y=6, height=386, width=370)
-EntryBox.place(x=18, y=401, height=90, width=265)
-Sendbutton.place(x=6, y=401, height=90)
-
-base.mainloop()
+class ChatApplication:
+    
+    def __init__(self):
+        self.window = Tk()
+        self._setup_main_window()
+        
+    def run(self):
+        self.window.mainloop()
+        
+    def _setup_main_window(self):
+        self.window.title("TWILIGHT CHATBOT")
+        self.window.resizable(width=False, height=False)
+        self.window.configure(width=470, height=550, bg=BG_COLOR)
+        
+        # head label
+        head_label = Label(self.window, bg=BG_COLOR, fg=TEXT_COLOR,
+                           text="Welcome", font=FONT_BOLD, pady=10)
+        head_label.place(relwidth=1)
+        
+        # tiny divider
+        line = Label(self.window, width=450, bg=BG_GRAY)
+        line.place(relwidth=1, rely=0.07, relheight=0.012)
+        
+        # text widget
+        self.text_widget = Text(self.window, width=20, height=2, bg=BG_COLOR, fg=TEXT_COLOR,
+                                font=FONT, padx=5, pady=5)
+        self.text_widget.place(relheight=0.745, relwidth=1, rely=0.08)
+        self.text_widget.configure(cursor="arrow", state=DISABLED)
+        
+        # scroll bar
+        scrollbar = Scrollbar(self.text_widget)
+        scrollbar.place(relheight=1, relx=0.974)
+        scrollbar.configure(command=self.text_widget.yview)
+        
+        # bottom label
+        bottom_label = Label(self.window, bg=BG_GRAY, height=80)
+        bottom_label.place(relwidth=1, rely=0.825)
+        
+        # message entry box
+        self.msg_entry = Entry(bottom_label, bg="#2C3E50", fg=TEXT_COLOR, font=FONT)
+        self.msg_entry.place(relwidth=0.74, relheight=0.06, rely=0.008, relx=0.011)
+        self.msg_entry.focus()
+        self.msg_entry.bind("<Return>", self._on_enter_pressed)
+        
+        # send button
+        send_button = Button(bottom_label, text="Send", font=FONT_BOLD, width=20, bg=BG_GRAY,
+                             command=lambda: self._on_enter_pressed(None))
+        send_button.place(relx=0.77, rely=0.008, relheight=0.06, relwidth=0.22)
+     
+    def _on_enter_pressed(self, event):
+        msg = self.msg_entry.get()
+        self._insert_message(msg, "You")
+        
+    def _insert_message(self, msg, sender):
+        if not msg:
+            return
+        
+        self.msg_entry.delete(0, END)
+        msg1 = f"{sender}: {msg}\n\n"
+        self.text_widget.configure(state=NORMAL)
+        self.text_widget.insert(END, msg1)
+        self.text_widget.configure(state=DISABLED)
+        
+        msg2 = f"{bot_name}: {chatbot_response(msg)}\n\n"
+        self.text_widget.configure(state=NORMAL)
+        self.text_widget.insert(END, msg2)
+        self.text_widget.configure(state=DISABLED)
+        
+        self.text_widget.see(END)
+             
+        
+if __name__ == "__main__":
+    app = ChatApplication()
+    app.run()
