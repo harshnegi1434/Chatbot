@@ -15,7 +15,7 @@
     "responses": ["Happy to help!", "Any time!", "My pleasure"]
   },
 
-  {"tag": "noanswer",
+  {"tag": "no-answer",
     "patterns":  [],
     "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
   },
@@ -25,9 +25,9 @@
   "responses": ["You can call me Twilight","I'm Twilight","I'm Twilight your virtual assistant"]
   },
 
-  {"tag": "options",  
+  {"tag": "options",
     "patterns":  ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
-    "responses": ["I can guide you through courses, fees, exams structure, etc. of the college", 
+    "responses": ["I can guide you through courses, fees, exams structure, etc. of the college",
                   "Offering support for courses, fees, exam structure, etc. of the college"]
   },
 
@@ -38,7 +38,7 @@
 
   {"tag": "courseDuration",
   "patterns": ["how long will be course", "how long will it take to complete course"],
-  "responses": ["Our college offers 4 year Btech Course, 3 year BBA Course & 3 year Hotel Management Course"]
+  "responses": ["Our college offers 4 year B.Tech Course, 3 year BBA Course & 3 year Hotel Management Course"]
   },
 
   {"tag": "Location",
@@ -68,7 +68,7 @@
 
   {"tag": "teachingStyle",
   "patterns": ["what is the teaching style of this college?","Is the teaching pattern different from other college?","what is the teaching format?"],
-  "responses": ["The classes run both in online and offline mode./nThe college has collaboarated with blackboard LMS."]
+  "responses": ["The classes run both in online and offline mode./nThe college has collaborated with blackboard LMS."]
   },
 
   {"tag": "exams",
@@ -83,7 +83,7 @@
 
   {"tag": "scholarship",
     "patterns": ["How can I get scholarship?","Is there any scholarship provided to students?"],
-    "responses": ["Yes. College provides scholarship to meritous students.\nThe students need to give CUCAT exam to avail scholarships.\nScholarships are also provided on the basis of Class 12th marks, JEE marks or through sports quota."]
+    "responses": ["Yes. College provides scholarship to meritorious students.\nThe students need to give CUCET exam to avail scholarships.\nScholarships are also provided on the basis of Class 12th marks, JEE marks or through sports quota."]
   },
 
   {"tag": "funActivities",
@@ -93,11 +93,11 @@
 
   {"tag": "facilities",
   "patterns": ["what facilities are provided by the college?","what are the facilities of college for students", "what are the college infrastructures "],
-  "responses": ["With excellent education facilities, Our College provides various other facilities like 24 hours internet, library, classes with AC, discusson room, canteen, parking space, and student service for any students queries."]
+  "responses": ["With excellent education facilities, Our College provides various other facilities like 24 hours internet, library, classes with AC, discussion room, canteen, parking space, and student service for any students queries."]
   },
 
   {"tag": "fee",
   "patterns": ["how much is the college fee","what is the fee structure"],
-  "responses": ["Course BE CSE \nTution Fees -> Rs. 95000 per semester \nCourse BBA \nTuition Fees -> Rs. 61000 per semester \nCourse Hotel Management \nTution Fees -> Rs. 58500 per semester \nHostel Fees -> Rs. 90000 per year"]
+  "responses": ["Course B.Tech CSE \nTuition Fees -> Rs. 95000 per semester \nCourse BBA \nTuition Fees -> Rs. 61000 per semester \nCourse Hotel Management \nTuition Fees -> Rs. 58500 per semester \nHostel Fees -> Rs. 90000 per year"]
   }
 ]}
