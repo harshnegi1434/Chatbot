@@ -14,12 +14,12 @@ from tkinter import *
 lemmatizer = WordNetLemmatizer()
 
 # loading the Dataset : intents.json
-intents = json.loads(open('C:\Programming\prgms\projectI\intents.json').read())
+intents = json.loads(open('intents.json').read())
 
 # loading the words , classes and model file
-words = pickle.load(open('C:\Programming\prgms\projectI\words.pkl', 'rb'))
-classes = pickle.load(open('C:\Programming\prgms\projectI\classes.pkl', 'rb'))
-model = load_model('C:\Programming\prgms\projectI\chatbot_model.h5')
+words = pickle.load(open('words.pkl', 'rb'))
+classes = pickle.load(open('classes.pkl', 'rb'))
+model = load_model('chatbot_model.h5')
 
 
 def clean_up_sentence(sentence):
