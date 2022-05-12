@@ -15,7 +15,7 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
 # loading the Dataset : intents.json
-intents = json.loads(open('C:\Programming\prgms\projectI\intents.json').read())
+intents = json.loads(open('intents.json').read())
 
 # creating several list for model training
 words = []                                  # for bow mode/vocabulary for patterns
@@ -42,8 +42,8 @@ classes = sorted(set(classes))
 print(words)
 
 # saving the words and classes in a pickle file
-pickle.dump(words, open('C:\Programming\prgms\projectI\words.pkl', 'wb'))
-pickle.dump(classes, open('C:\Programming\prgms\projectI\classes.pkl', 'wb'))
+pickle.dump(words, open('words.pkl', 'wb'))
+pickle.dump(classes, open('classes.pkl', 'wb'))
 
 # creating our training data
 training = []
@@ -97,6 +97,6 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 
 # fitting the saving the model
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
-model.save('C:\Programming\prgms\projectI\chatbot_model.h5', hist)
+model.save('chatbot_model.h5', hist)
 
 print('Model Created')
