@@ -16,7 +16,7 @@
   },
 
   {"tag": "no-answer",
-    "patterns":  [],
+    "patterns":  ["      " , "lorem ipsum"],
     "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
   },
 
@@ -99,5 +99,10 @@
   {"tag": "fee",
   "patterns": ["how much is the college fee","what is the fee structure"],
   "responses": ["Course B.Tech CSE \nTuition Fees -> Rs. 95000 per semester \nCourse BBA \nTuition Fees -> Rs. 61000 per semester \nCourse Hotel Management \nTuition Fees -> Rs. 58500 per semester \nHostel Fees -> Rs. 90000 per year"]
+  },
+  
+  {"tag": "placements",
+    "patterns": ["What is the placement record of the college","highest placement offered"],
+    "responses": ["The college is having an excellent record in terms of placements\n Highest offered is 52LPA\n Highest offered in management is 28LPA"]
   }
 ]}
